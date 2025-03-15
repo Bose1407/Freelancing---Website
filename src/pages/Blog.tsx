@@ -43,7 +43,7 @@ const Blog = () => {
     {
       id: 4,
       title: 'The Business Case for Digital Transformation',
-      excerpt: 'Why businesses of all sizes need to embrace digital transformation to remain competitive in today's market.',
+      excerpt: 'Why businesses of all sizes need to embrace digital transformation to remain competitive in today\'s market.',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       author: 'Jessica Taylor',
       date: 'April 30, 2023',

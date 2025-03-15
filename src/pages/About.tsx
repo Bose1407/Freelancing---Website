@@ -119,7 +119,7 @@ const About = () => {
               },
               {
                 title: 'Quality',
-                description: 'We're committed to excellence in everything we do, delivering solutions that exceed expectations and stand the test of time.'
+                description: 'We\'re committed to excellence in everything we do, delivering solutions that exceed expectations and stand the test of time.'
               },
               {
                 title: 'Collaboration',
@@ -127,7 +127,7 @@ const About = () => {
               },
               {
                 title: 'Integrity',
-                description: 'We operate with honesty and ethical standards, doing what's right for our clients, our team, and our community.'
+                description: 'We operate with honesty and ethical standards, doing what\'s right for our clients, our team, and our community.'
               },
               {
                 title: 'Continuous Learning',
