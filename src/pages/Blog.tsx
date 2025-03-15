@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { PageTransition, FadeIn } from '@/utils/animations';
+import { FadeIn } from '@/utils/animations';
 import { BlogPost } from '@/types';
 import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
@@ -88,7 +88,7 @@ const Blog = () => {
   });
 
   return (
-    <PageTransition>
+    <div className="min-h-screen transition-opacity duration-500">
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-imperial-50">
         <div className="container mx-auto px-6">
@@ -262,7 +262,7 @@ const Blog = () => {
           </FadeIn>
         </div>
       </section>
-    </PageTransition>
+    </div>
   );
 };
 

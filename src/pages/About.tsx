@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PageTransition, FadeIn } from '@/utils/animations';
+import { FadeIn } from '@/utils/animations';
 import { TeamMember } from '@/types';
 
 const About = () => {
@@ -36,7 +36,7 @@ const About = () => {
   ];
 
   return (
-    <PageTransition>
+    <div className="min-h-screen transition-opacity duration-500">
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-imperial-50">
         <div className="container mx-auto px-6">
@@ -115,27 +115,27 @@ const About = () => {
             {[
               {
                 title: 'Innovation',
-                description: 'We constantly explore new technologies and approaches to solve problems in creative and effective ways.',
+                description: 'We constantly explore new technologies and approaches to solve problems in creative and effective ways.'
               },
               {
                 title: 'Quality',
-                description: 'We're committed to excellence in everything we do, delivering solutions that exceed expectations and stand the test of time.',
+                description: 'We're committed to excellence in everything we do, delivering solutions that exceed expectations and stand the test of time.'
               },
               {
                 title: 'Collaboration',
-                description: 'We believe in working closely with our clients, building partnerships based on trust, transparency, and shared success.',
+                description: 'We believe in working closely with our clients, building partnerships based on trust, transparency, and shared success.'
               },
               {
                 title: 'Integrity',
-                description: 'We operate with honesty and ethical standards, doing what's right for our clients, our team, and our community.',
+                description: 'We operate with honesty and ethical standards, doing what's right for our clients, our team, and our community.'
               },
               {
                 title: 'Continuous Learning',
-                description: 'We invest in growing our knowledge and skills, staying at the forefront of technology trends and best practices.',
+                description: 'We invest in growing our knowledge and skills, staying at the forefront of technology trends and best practices.'
               },
               {
                 title: 'Client Success',
-                description: 'We measure our success by the success of our clients, focusing on delivering real business value through our work.',
+                description: 'We measure our success by the success of our clients, focusing on delivering real business value through our work.'
               }
             ].map((value, index) => (
               <FadeIn key={index} direction="up" delay={0.1 * index}>
@@ -183,7 +183,7 @@ const About = () => {
           </div>
         </div>
       </section>
-    </PageTransition>
+    </div>
   );
 };
 

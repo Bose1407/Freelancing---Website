@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { PageTransition } from '@/utils/animations';
 import Hero from '@/components/home/Hero';
 import Services from '@/components/home/Services';
 import About from '@/components/home/About';
@@ -9,7 +8,7 @@ import ContactForm from '@/components/ui/ContactForm';
 
 const Index = () => {
   return (
-    <PageTransition>
+    <div className="min-h-screen transition-opacity duration-500">
       <Hero />
       <Services />
       <About />
@@ -29,7 +28,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </PageTransition>
+    </div>
   );
 };
 
