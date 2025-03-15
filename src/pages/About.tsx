@@ -136,7 +136,7 @@ const About = () => {
               {
                 title: 'Client Success',
                 description: 'We measure our success by the success of our clients, focusing on delivering real business value through our work.',
-              },
+              }
             ].map((value, index) => (
               <FadeIn key={index} direction="up" delay={0.1 * index}>
                 <div className="bg-white p-6 rounded-xl shadow-sm h-full hover:shadow-md transition-shadow duration-300">

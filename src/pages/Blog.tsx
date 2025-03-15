@@ -72,7 +72,7 @@ const Blog = () => {
       image: '/placeholder.svg',
       slug: 'securing-web-applications-best-practices',
       tags: ['Security', 'Web Development'],
-    },
+    }
   ];
 
   const allTags = Array.from(new Set(blogPosts.flatMap(post => post.tags)));
