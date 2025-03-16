@@ -11,23 +11,23 @@ const ContactForm: React.FC = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      // Simulate API call - in production, this would be a real API endpoint
-      await handleSubmit(e);
-      
-      // For the sake of demo, we're using client-side toast notification
-      // In a real app with Node.js backend, we would send to the server
-      toast({
-        title: "Message sent!",
-        description: "Your message has been sent to the server. We'll get back to you soon.",
+      // Send data to the backend API
+      const response = await fetch('http://localhost:4000/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
 
-      // This would be the actual server endpoint in production:
-      // await fetch('http://localhost:4000/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
+      const data = await response.json();
       
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Your message has been sent successfully. We'll get back to you soon.",
+        });
+      } else {
+        throw new Error(data.message || 'Failed to send message');
+      }
     } catch (error) {
       console.error('Error sending message:', error);
       toast({

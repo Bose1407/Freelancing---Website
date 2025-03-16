@@ -29,20 +29,15 @@ export const useContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Here is where you would normally send the data to your backend
-      // For now, we'll simulate a successful submission
+      // Here is where we would normally send the data to the backend
+      // Actual implementation moved to the ContactForm component
       console.log('Form submitted with data:', formData);
       
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. We'll get back to you soon.",
-        duration: 5000,
-      });
-
       resetForm();
+      return true;
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
@@ -51,6 +46,7 @@ export const useContactForm = () => {
         variant: "destructive",
         duration: 5000,
       });
+      return false;
     } finally {
       setIsSubmitting(false);
     }

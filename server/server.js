@@ -9,8 +9,12 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'],
+  credentials: true
+}));
 app.use(bodyParser.json());
+app.use(express.json());
 
 // Configure nodemailer transporter
 const transporter = nodemailer.createTransport({
@@ -21,11 +25,18 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Basic health check endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Contact form API is running!' });
+});
+
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
+  console.log('Received contact form submission:', req.body);
   const { name, email, subject, message } = req.body;
   
   if (!name || !email || !subject || !message) {
+    console.log('Missing required fields');
     return res.status(400).json({ 
       success: false, 
       message: 'All fields are required' 
@@ -51,6 +62,7 @@ app.post('/api/contact', async (req, res) => {
     
     // Send email
     await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
     
     res.status(200).json({ 
       success: true, 

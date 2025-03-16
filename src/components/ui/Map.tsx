@@ -46,7 +46,7 @@ const Map: React.FC<MapProps> = ({
       // Add marker for Madurai
       const marker = new mapboxgl.Marker({ color: isDarkMode ? '#6074ff' : '#2727e6' })
         .setLngLat([lng, lat])
-        .setPopup(new mapboxgl.Popup().setHTML('<h3>Madurai, Tamil Nadu</h3>'))
+        .setPopup(new mapboxgl.Popup().setHTML('<h3>Madurai, Tamil Nadu</h3><p>The Temple City</p>'))
         .addTo(map.current);
       
       map.current.on('load', () => {
@@ -64,7 +64,7 @@ const Map: React.FC<MapProps> = ({
         map.current.remove();
       }
     };
-  }, [token, isDarkMode]);
+  }, [token, isDarkMode, lat, lng, zoom]);
 
   const handleTokenSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,7 +77,7 @@ const Map: React.FC<MapProps> = ({
   if (!token) {
     return (
       <FadeIn className="rounded-xl bg-gray-100 dark:bg-gray-800 p-6 shadow-sm">
-        <h3 className="text-lg font-semibold mb-4">Mapbox Token Required</h3>
+        <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Mapbox Token Required</h3>
         <p className="mb-4 text-gray-600 dark:text-gray-300">
           Please enter your Mapbox public token to display the map. 
           You can get a free token at <a href="https://mapbox.com" target="_blank" rel="noopener noreferrer" className="text-imperial-600 dark:text-imperial-400 underline">mapbox.com</a>.
@@ -88,7 +88,7 @@ const Map: React.FC<MapProps> = ({
             value={mapTokenInput}
             onChange={(e) => setMapTokenInput(e.target.value)}
             placeholder="Enter Mapbox token"
-            className="px-4 py-2 border rounded-md flex-grow dark:bg-gray-700 dark:border-gray-600"
+            className="px-4 py-2 border rounded-md flex-grow dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             required
           />
           <button 
