@@ -46,19 +46,29 @@ app.post('/api/contact', async (req, res) => {
   try {
     // Email content
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: email,
       to: process.env.RECIPIENT_EMAIL, // recipient's email (website owner)
       replyTo: email,
       subject: `New Contact Form Submission: ${subject}`,
       html: `
-        <h3>New Contact Form Submission</h3>
+    <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4;">
+      <div style="max-width: 600px; background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
+        <h2 style="color: #333; text-align: center;">📩 New Contact Form Submission</h2>
+        <hr style="border: 1px solid #ddd;">
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #007bff; text-decoration: none;">${email}</a></p>
         <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
+        <blockquote style="background: #f9f9f9; padding: 10px; border-left: 5px solid #007bff; margin: 10px 0;">
+          ${message}
+        </blockquote>
+        <hr style="border: 1px solid #ddd;">
+        <p style="text-align: center; font-size: 14px; color: #888;">This email was sent from your website contact form.</p>
+      </div>
+    </div>
+  `,
     };
+
     
     // Send email
     await transporter.sendMail(mailOptions);
