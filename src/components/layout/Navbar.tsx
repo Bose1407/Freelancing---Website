@@ -68,7 +68,6 @@ const Navbar: React.FC = () => {
 
           {/* Theme Toggle and Contact Button on Desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <ThemeToggle />
             <Button className="bg-imperial-600 hover:bg-imperial-700 dark:bg-imperial-500 dark:hover:bg-imperial-600 text-white">
               Get Started
             </Button>

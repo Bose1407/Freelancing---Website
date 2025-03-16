@@ -74,44 +74,9 @@ const Map: React.FC<MapProps> = ({
     }
   };
 
-  if (!token) {
-    return (
-      <FadeIn className="rounded-xl bg-gray-100 dark:bg-gray-800 p-6 shadow-sm">
-        <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Mapbox Token Required</h3>
-        <p className="mb-4 text-gray-600 dark:text-gray-300">
-          Please enter your Mapbox public token to display the map. 
-          You can get a free token at <a href="https://mapbox.com" target="_blank" rel="noopener noreferrer" className="text-imperial-600 dark:text-imperial-400 underline">mapbox.com</a>.
-        </p>
-        <form onSubmit={handleTokenSubmit} className="flex flex-col sm:flex-row gap-3">
-          <input
-            type="text"
-            value={mapTokenInput}
-            onChange={(e) => setMapTokenInput(e.target.value)}
-            placeholder="Enter Mapbox token"
-            className="px-4 py-2 border rounded-md flex-grow dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-            required
-          />
-          <button 
-            type="submit" 
-            className="px-4 py-2 bg-imperial-600 dark:bg-imperial-500 text-white rounded-md hover:bg-imperial-700 dark:hover:bg-imperial-600 transition-colors"
-          >
-            Save Token
-          </button>
-        </form>
-      </FadeIn>
-    );
-  }
-
-  return (
-    <FadeIn className={`relative rounded-xl overflow-hidden shadow-sm ${className}`}>
-      <div ref={mapContainer} className="w-full h-[400px]" />
-      {!mapLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-          <p className="text-gray-600 dark:text-gray-300">Loading map...</p>
-        </div>
-      )}
-    </FadeIn>
-  );
+  return(
+    <></>
+  )
 };
 
 export default Map;
