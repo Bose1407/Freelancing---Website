@@ -13,13 +13,13 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    
+    <ThemeProvider>
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -38,7 +38,7 @@ const App = () => (
           <Footer />
         </BrowserRouter>
       </TooltipProvider>
-    
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
