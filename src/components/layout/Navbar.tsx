@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,13 +36,15 @@ const Navbar: React.FC = () => {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6',
-        isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+        isScrolled 
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm' 
+          : 'bg-transparent'
       )}
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
-          <NavLink to="/" className="font-bold text-2xl text-imperial-950 animate-hover">
-            <span className="text-imperial-600">Imperium</span>
+          <NavLink to="/" className="font-bold text-2xl text-imperial-950 dark:text-white animate-hover">
+            <span className="text-imperial-600 dark:text-imperial-400">Imperium</span>
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -52,7 +55,9 @@ const Navbar: React.FC = () => {
                 to={link.path}
                 className={({ isActive }) => cn(
                   'text-sm font-medium animate-hover',
-                  isActive ? 'text-imperial-600' : 'text-gray-700 hover:text-imperial-500',
+                  isActive 
+                    ? 'text-imperial-600 dark:text-imperial-400' 
+                    : 'text-gray-700 dark:text-gray-300 hover:text-imperial-500 dark:hover:text-imperial-400',
                   'link-underline'
                 )}
               >
@@ -61,28 +66,32 @@ const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Contact Button on Desktop */}
-          <div className="hidden md:block">
-            <Button className="bg-imperial-600 hover:bg-imperial-700 text-white">
+          {/* Theme Toggle and Contact Button on Desktop */}
+          <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
+            <Button className="bg-imperial-600 hover:bg-imperial-700 dark:bg-imperial-500 dark:hover:bg-imperial-600 text-white">
               Get Started
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-700"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center space-x-4">
+            <ThemeToggle />
+            <button
+              className="text-gray-700 dark:text-gray-300"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       <div
         className={cn(
-          'md:hidden absolute left-0 right-0 top-full bg-white shadow-lg transition-all duration-300 overflow-hidden',
+          'md:hidden absolute left-0 right-0 top-full bg-white dark:bg-gray-900 shadow-lg transition-all duration-300 overflow-hidden',
           isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         )}
       >
@@ -93,14 +102,16 @@ const Navbar: React.FC = () => {
               to={link.path}
               className={({ isActive }) => cn(
                 'text-base py-2 font-medium animate-hover',
-                isActive ? 'text-imperial-600' : 'text-gray-700 hover:text-imperial-500'
+                isActive 
+                  ? 'text-imperial-600 dark:text-imperial-400' 
+                  : 'text-gray-700 dark:text-gray-300 hover:text-imperial-500 dark:hover:text-imperial-400'
               )}
               onClick={() => setIsMenuOpen(false)}
             >
               {link.name}
             </NavLink>
           ))}
-          <Button className="bg-imperial-600 hover:bg-imperial-700 text-white mt-4 w-full">
+          <Button className="bg-imperial-600 hover:bg-imperial-700 dark:bg-imperial-500 dark:hover:text-imperial-600 text-white mt-4 w-full">
             Get Started
           </Button>
         </div>

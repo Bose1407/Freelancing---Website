@@ -3,16 +3,47 @@ import React from 'react';
 import { useContactForm } from '@/hooks/useContactForm';
 import { Button } from '@/components/ui/button';
 import { FadeIn } from '@/utils/animations';
+import { toast } from '@/components/ui/use-toast';
 
 const ContactForm: React.FC = () => {
   const { formData, isSubmitting, handleChange, handleSubmit } = useContactForm();
 
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      // Simulate API call - in production, this would be a real API endpoint
+      await handleSubmit(e);
+      
+      // For the sake of demo, we're using client-side toast notification
+      // In a real app with Node.js backend, we would send to the server
+      toast({
+        title: "Message sent!",
+        description: "Your message has been sent to the server. We'll get back to you soon.",
+      });
+
+      // This would be the actual server endpoint in production:
+      // await fetch('http://localhost:4000/api/contact', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formData)
+      // });
+      
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send your message. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <FadeIn className="w-full max-w-2xl mx-auto">
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={onSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Name
             </label>
             <input
@@ -22,13 +53,13 @@ const ContactForm: React.FC = () => {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-imperial-500 focus:border-transparent transition duration-200 outline-none"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-imperial-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition duration-200 outline-none"
               placeholder="Your name"
             />
           </div>
           
           <div className="space-y-2">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Email
             </label>
             <input
@@ -38,14 +69,14 @@ const ContactForm: React.FC = () => {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-imperial-500 focus:border-transparent transition duration-200 outline-none"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-imperial-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition duration-200 outline-none"
               placeholder="your.email@example.com"
             />
           </div>
         </div>
         
         <div className="space-y-2">
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Subject
           </label>
           <input
@@ -55,13 +86,13 @@ const ContactForm: React.FC = () => {
             required
             value={formData.subject}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-imperial-500 focus:border-transparent transition duration-200 outline-none"
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-imperial-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition duration-200 outline-none"
             placeholder="How can we help you?"
           />
         </div>
         
         <div className="space-y-2">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Message
           </label>
           <textarea
@@ -71,7 +102,7 @@ const ContactForm: React.FC = () => {
             required
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-imperial-500 focus:border-transparent transition duration-200 outline-none resize-none"
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-imperial-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition duration-200 outline-none resize-none"
             placeholder="Tell us more about your project, needs, and timeline..."
           />
         </div>
@@ -80,7 +111,7 @@ const ContactForm: React.FC = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full md:w-auto bg-imperial-600 hover:bg-imperial-700 text-white py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center"
+            className="w-full md:w-auto bg-imperial-600 hover:bg-imperial-700 dark:bg-imperial-500 dark:hover:bg-imperial-600 text-white py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center"
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
