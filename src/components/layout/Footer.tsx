@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-imperial-600">Imperium</h3>
+            <h3 className="text-xl font-bold text-imperial-600">Broskies<span className='text-black'>Hub</span></h3>
             <p className="text-gray-600 mt-2 max-w-xs">
               Empowering businesses through innovative technology solutions that drive growth and transformation.
             </p>
@@ -95,19 +95,19 @@ const Footer: React.FC = () => {
               <li className="flex items-start">
                 <MapPin size={20} className="text-imperial-600 mr-2 mt-1 flex-shrink-0" />
                 <span className="text-gray-600">
-                  123 Innovation Drive, Tech Valley, CA 94103
+                  Madurai,Tamilnadu
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="text-imperial-600 mr-2 flex-shrink-0" />
-                <a href="tel:+11234567890" className="text-gray-600 hover:text-imperial-600 transition-colors">
-                  +1 (123) 456-7890
+                <a href="tel:+91 7094511720" className="text-gray-600 hover:text-imperial-600 transition-colors">
+                  +91 7094511720
                 </a>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="text-imperial-600 mr-2 flex-shrink-0" />
-                <a href="mailto:info@imperium.com" className="text-gray-600 hover:text-imperial-600 transition-colors">
-                  info@imperium.com
+                <a href="mailto:broskieshub@gmail.com" className="text-gray-600 hover:text-imperial-600 transition-colors">
+                  broskieshub@gmail.com
                 </a>
               </li>
             </ul>
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
         <div className="mt-12 pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 text-sm">
-              © {currentYear} Imperium. All rights reserved.
+              © {currentYear} BroskiesHub. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
               <Link to="/privacy" className="text-sm text-gray-600 hover:text-imperial-600 transition-colors">

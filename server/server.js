@@ -9,12 +9,12 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Middleware
-app.use(
-  cors({
-    origin: "https://team-imperium.netlify.app",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:8080/",
+//     credentials: true,
+//   })
+// );
 app.use(bodyParser.json());
 app.use(express.json());
 

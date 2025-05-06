@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="font-bold text-2xl text-imperial-950 dark:text-white animate-hover">
-            <span className="text-imperial-600 dark:text-imperial-400">Imperium</span>
+            <span className="text-imperial-600 dark:text-imperial-400">Broskies<span className='text-black'>Hub</span></span>
           </NavLink>
 
           {/* Desktop Navigation */}
