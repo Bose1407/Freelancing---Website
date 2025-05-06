@@ -64,7 +64,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-medium text-gray-900 dark:text-white mb-1">Phone</h3>
                         <p className="text-gray-600 dark:text-gray-400">
-                          +91 (4522) 123-4567<br />
+                          +91 7094511720<br />
                           Monday - Friday, 9am - 6pm IST
                         </p>
                       </div>
@@ -77,8 +77,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-medium text-gray-900 dark:text-white mb-1">Email</h3>
                         <p className="text-gray-600 dark:text-gray-400">
-                          info@imperium.com<br />
-                          support@imperium.com
+                          broskieshub@gmail.com<br />
                         </p>
                       </div>
                     </div>
@@ -91,7 +90,6 @@ const Contact = () => {
                         <h3 className="font-medium text-gray-900 dark:text-white mb-1">Hours</h3>
                         <p className="text-gray-600 dark:text-gray-400">
                           Monday - Friday: 9:00 AM - 6:00 PM<br />
-                          Saturday & Sunday: Closed
                         </p>
                       </div>
                     </div>
