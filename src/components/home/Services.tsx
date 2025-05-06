@@ -21,16 +21,30 @@ const Services: React.FC = () => {
     },
     {
       id: 3,
-      title: 'UI/UX Design',
-      description: 'User-centered design approaches that enhance usability and create delightful user experiences.',
-      icon: '🎨',
+      title: 'Ai agents',
+      description: 'Autonomous systems that leverage artificial intelligence to perform tasks, make decisions, and interact with users intelligently across various domains.',
+      icon: '🤖',
     },
     {
-      id: 4,
-      title: 'Digital Marketing',
-      description: 'Strategic digital marketing campaigns that drive traffic, generate leads, and increase conversions.',
-      icon: '📈',
-    },
+        id: 4,
+        title: 'Automation for 1000+ Applications (e.g., Gmail, Excel, etc.)',
+        description: 'Seamless integration and automation across popular apps and services to streamline workflows, reduce manual effort, and boost productivity.',
+        icon: '⚙️',
+      },
+      {
+  id: 5,
+  title: 'Machine Learning and Deep Learning',
+  description: 'Machine Learning and Deep Learning techniques that enable systems to learn from data, recognize patterns, and make intelligent decisions with minimal human intervention.',
+  icon: '🧠',
+},{
+  id: 6,
+  title: 'Web3 Application on Ethereum',
+  description: 'Decentralized applications (dApps) built on the Ethereum blockchain, enabling secure, transparent, and trustless interactions using smart contracts.',
+  icon: '⛓️',
+}
+
+
+,
   ];
 
   return (
@@ -48,7 +62,7 @@ const Services: React.FC = () => {
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <FadeIn key={service.id} direction="up" delay={0.1 * index} className="h-full">
               <div className="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">

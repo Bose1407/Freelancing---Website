@@ -11,7 +11,6 @@ const Index = () => {
     <div className="min-h-screen transition-opacity duration-500">
       <Hero />
       <Services />
-      <About />
       <FeaturedProjects />
       
       {/* CTA Section */}

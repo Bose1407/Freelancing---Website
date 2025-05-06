@@ -65,12 +65,7 @@ const FeaturedProjects: React.FC = () => {
                     {project.title}
                   </h3>
                   <p className="text-gray-600 mb-6 flex-grow">{project.description}</p>
-                  <Link 
-                    to={`/projects/${project.id}`} 
-                    className="inline-flex items-center text-imperial-600 font-medium group-hover:text-imperial-700 transition-colors"
-                  >
-                    View Project <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Link>
+                  
                 </div>
               </div>
             </FadeIn>

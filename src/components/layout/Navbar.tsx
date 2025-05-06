@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,11 +11,9 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Projects', path: '/projects' },
     { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
   ];
 
   useEffect(() => {
@@ -68,9 +65,14 @@ const Navbar: React.FC = () => {
 
           {/* Theme Toggle and Contact Button on Desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button className="bg-imperial-600 hover:bg-imperial-700 dark:bg-imperial-500 dark:hover:bg-imperial-600 text-white">
-              Get Started
-            </Button>
+            {/* Theme Toggle Button */}
+            <ThemeToggle />
+            {/* Contact Us Button */}
+            <Link to={'/contact'}>
+              <Button className="bg-imperial-600 hover:bg-imperial-700 dark:bg-imperial-500 dark:hover:bg-imperial-600 text-white">
+                Contact Us
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -110,9 +112,7 @@ const Navbar: React.FC = () => {
               {link.name}
             </NavLink>
           ))}
-          <Button className="bg-imperial-600 hover:bg-imperial-700 dark:bg-imperial-500 dark:hover:text-imperial-600 text-white mt-4 w-full">
-            Get Started
-          </Button>
+          
         </div>
       </div>
     </header>

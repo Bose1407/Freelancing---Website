@@ -7,8 +7,8 @@ const About = () => {
   const teamMembers: TeamMember[] = [
     {
       id: 1,
-      name: 'Alex Johnson',
-      role: 'CEO & Founder',
+      name: 'Bose B',
+      role: 'Developer',
       bio: 'With over 15 years of experience in technology and business leadership, Alex founded Imperium with a vision to transform how businesses leverage technology.',
       image: '/placeholder.svg',
     },
