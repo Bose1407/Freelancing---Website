@@ -13,7 +13,6 @@ const Navbar: React.FC = () => {
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Blog', path: '/blog' },
   ];
 
   useEffect(() => {
@@ -112,6 +111,7 @@ const Navbar: React.FC = () => {
               {link.name}
             </NavLink>
           ))}
+          <a href="/contact"><p>Contact Us</p></a>
           
         </div>
       </div>
